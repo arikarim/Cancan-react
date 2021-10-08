@@ -27,7 +27,6 @@ const CreatPost = () => {
       );
       console.log(data);
     } catch (err) {
-
       console.log(err);
     }
   };
@@ -35,21 +34,27 @@ const CreatPost = () => {
     console.log(token);
   }, [user, token]);
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <input
-        onChange={(e) => setTitle(e.target.value)}
-        type="text"
-        placeholder="Title"
-      />
-      <br />
-      <br />
-      <textarea
-        onChange={(e) => setBody(e.target.value)}
-        placeholder="Write your post here"
-      />
-      <br />
-      <br />
-      <button type="submit">Submit</button>
+    <form className="mx-auto" onSubmit={(e) => handleSubmit(e)}>
+      <div className="col-6 mx-auto my-4">
+        <input
+          className="form-control"
+          onChange={(e) => setTitle(e.target.value)}
+          type="text"
+          placeholder="Title"
+        />
+      </div>
+      <div className="col-6 mx-auto my-4">
+        <textarea
+          className="w-100"
+          onChange={(e) => setBody(e.target.value)}
+          placeholder="Write your post here"
+        />
+      </div>
+      <div  className="col-6 mx-auto my-4">
+        <button className="mx-auto w-100 btn btn-dark" type="submit">
+          Submit
+        </button>
+      </div>
     </form>
   );
 };

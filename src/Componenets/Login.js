@@ -23,8 +23,9 @@ const Login = () => {
   };
   useEffect(() => {}, []);
   return (
-    <form onSubmit={(e) => loginF(e)}>
+    <form  className="col-6 mx-auto my-5" onSubmit={(e) => loginF(e)}>
       <input
+       className="col-6 form-control mx-auto"
         onChange={(e) => setEmail(e.target.value)}
         type="text"
         name="email"
@@ -32,13 +33,14 @@ const Login = () => {
       />{" "}
       <br /> <br />
       <input
+      className="col-6 form-control mx-auto"
         onChange={(e) => setPassword(e.target.value)}
         type="password"
         name="password"
         placeholder="Password"
       />{" "}
       <br /> <br />
-      <button type="submit">Login</button>
+      <button className="col-6 btn btn-dark form-control mx-auto" type="submit">Login</button>
     </form>
   );
 };
