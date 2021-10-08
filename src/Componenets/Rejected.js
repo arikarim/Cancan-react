@@ -46,44 +46,39 @@ const Rejected = () => {
           },
         }
       );
-      console.log(data);
+      console.log(data.data);
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <div>
+    <div className="d-flex flex-wrap">
       {posts &&
         posts.map((post) => (
-          <div className="box" id={post.id} key={post.id}>
+          <div className="my-3 mx-2 d-flex flex-column" id={post.id} key={post.id}>
             <input
+            className="form-control my-3"
               type="text"
               defaultValue={post.title}
               onChange={(e) => setTitle(e.target.value)}
             />
-            <br />
-            <br />
-
             <textarea
+            className="form-control my-3"
               type="text"
               defaultValue={post.body}
               onChange={(e) => setBody(e.target.value)}
             ></textarea>
-            <br />
-            <br />
-
-            <div>
+            <div className="d-flex flex-column">
               <button
+              className="btn btn-dark my2"
                 value="sfr"
                 id={post.id}
                 onClick={(e) => handlePublish(e, post.title, post.body)}
               >
                 Submit Again
               </button>
-              <br />
-              <br />
-
               <button
+              className="btn btn-danger my-2"
                 value="discard"
                 id={post.id}
                 onClick={(e) => handlePublish(e, post.title, post.body)}

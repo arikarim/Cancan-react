@@ -38,27 +38,29 @@ const AdminPosts = () => {
         },
       }
       );
-      console.log(data);
+      console.log(data.data);
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <div>
+    <div className="d-flex gap-2">
       {posts &&
         posts.map((post) => (
-          <div className="box" id={post.id} key={post.id}>
+          <div className="col-12 col-md-4" id={post.id} key={post.id}>
             <h1>{post.title}</h1>
             <p>{post.body}</p>
-            <div>
+            <div className="d-flex flex-column">
               <button
+                className="btn btn-warning my-2"
                 value="sfq"
                 id={post.id}
                 onClick={(e) => handlePublish(e)}
               >
-                Cancel
+                Send for change
               </button>
               <button
+              className="btn btn-success my-2"
                 value="publish"
                 id={post.id}
                 onClick={(e) => handlePublish(e)}

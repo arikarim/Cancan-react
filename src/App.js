@@ -4,20 +4,22 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./Componenets/Login";
 import CreatPost from "./Componenets/CreatPost";
 import AdminPosts from "./Componenets/AdminPosts";
-import Rejected from "./Componenets/Rejected"
+import Rejected from "./Componenets/Rejected";
+import Nav from "./Componenets/Nav";
 function App() {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Router>
-        <Route>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/createpost" component={CreatPost} />
-            <Route exact path="/adminposts" component={AdminPosts} />
-            <Route exact path="/rejected" component={Rejected} />
-          </Switch>
-        </Route>
+        <Nav />
+        {/* <Route> */}
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/createpost" component={CreatPost} />
+          <Route exact path="/adminposts" component={AdminPosts} />
+          <Route exact path="/rejected" component={Rejected} />
+        </Switch>
+        {/* </Route> */}
       </Router>
     </div>
   );

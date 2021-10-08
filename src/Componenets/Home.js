@@ -21,10 +21,10 @@ const Home = () => {
     fetchPosts();
   }, []);
   return (
-    <div className="d-flex">
+    <div className="d-flex flex-wrap">
       {posts &&
         posts.map((post) => (
-          <div className="box col-12 col-md-4" key={post.id}>
+          <div className="bg-light m-2 col-12 col-md-4" key={post.id}>
             <h1>{post.title}</h1>
             <p>{post.body}</p>
           </div>
