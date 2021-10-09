@@ -44,7 +44,7 @@ const AdminPosts = () => {
     }
   };
   return (
-    <div className="d-flex gap-2">
+    <div className="d-flex flex-wrap gap-2">
       {posts &&
         posts.map((post) => (
           <div className="col-12 col-md-4" id={post.id} key={post.id}>
