@@ -12,8 +12,8 @@ const Nav = () => {
         <Link className="mx-3 text-decoration-none link-light" to={"./createpost"}>
           Create Post
         </Link>
-        <Link className="mx-3 text-decoration-none link-light" to={"./adminposts"}>
-          Admin posts
+        <Link className="mx-3 text-decoration-none link-light" to={"./roles"}>
+          My Posts
         </Link>
         <Link className="mx-3 text-decoration-none link-light" to={"./rejected"}>
         My rejected Posts

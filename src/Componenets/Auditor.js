@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const AdminPosts = () => {
+const Auditor = () => {
   const [posts, setPosts] = useState([]);
   const [decide, setDecide] = useState("");
   const token = localStorage.getItem("token");
@@ -53,7 +53,7 @@ const AdminPosts = () => {
             <div className="d-flex flex-column">
               <button
                 className="btn btn-warning my-2"
-                value="sfq"
+                value="send_for_question"
                 id={post.id}
                 onClick={(e) => handlePublish(e)}
               >
@@ -61,7 +61,7 @@ const AdminPosts = () => {
               </button>
               <button
               className="btn btn-success my-2"
-                value="publish"
+                value="send_for_audit"
                 id={post.id}
                 onClick={(e) => handlePublish(e)}
               >
@@ -74,4 +74,5 @@ const AdminPosts = () => {
   );
 };
 
-export default AdminPosts;
+export default Auditor;
+

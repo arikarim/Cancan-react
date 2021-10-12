@@ -14,9 +14,11 @@ const Login = () => {
           password: password,
         },
       });
-      localStorage.setItem("user", JSON.stringify(data.data.user));
+      localStorage.setItem("user", JSON.stringify(data.data.user.user));
+      localStorage.setItem("roles", JSON.stringify(data.data.user.roles));
       localStorage.setItem("token", data.headers.authorization);
-      console.log(data.data.user);
+      console.log(data.data.user.user);
+      console.log(data.data.user.roles);
     } catch (error) {
       console.log(error);
     }

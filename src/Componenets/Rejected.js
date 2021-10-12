@@ -71,11 +71,11 @@ const Rejected = () => {
             <div className="d-flex flex-column">
               <button
               className="btn btn-dark my2"
-                value="sfr"
+                value="send_for_review"
                 id={post.id}
                 onClick={(e) => handlePublish(e, post.title, post.body)}
               >
-                Submit Again
+                Submit for Review
               </button>
               <button
               className="btn btn-danger my-2"

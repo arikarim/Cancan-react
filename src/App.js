@@ -3,9 +3,10 @@ import Home from "./Componenets/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./Componenets/Login";
 import CreatPost from "./Componenets/CreatPost";
-import AdminPosts from "./Componenets/AdminPosts";
 import Rejected from "./Componenets/Rejected";
 import Nav from "./Componenets/Nav";
+import Reviewer from "./Componenets/Reviewer";
+import RolePosts from "./Componenets/RolePosts";
 function App() {
   return (
     <div className="container-fluid">
@@ -16,7 +17,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/createpost" component={CreatPost} />
-          <Route exact path="/adminposts" component={AdminPosts} />
+          <Route exact path="/roles" component={RolePosts} />
           <Route exact path="/rejected" component={Rejected} />
         </Switch>
         {/* </Route> */}
