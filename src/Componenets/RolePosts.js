@@ -11,18 +11,28 @@ const RolePosts = () => {
 
   const roles = JSON.parse(localStorage.getItem("roles"));
   var userRole = 'rejected'
+  if (roles.includes("reviewer")) {
+    userRole = 'reviewer'
+    console.log(userRole)
+  } else if (roles.includes("auditor")) {
+    userRole = 'auditor'
+  } else {
+    userRole = 'rejected'
+  }
   useEffect(() => {
     var end = "posts";
     if (roles.includes("reviewer")) {
       end = "adminposts";
       userRole = 'reviewer'
+      console.log(userRole)
     } else if (roles.includes("auditor")) {
       userRole = 'auditor'
-      end = "auditposts";
+      end = "auditor";
     } else {
       end = "rejected";
       userRole = 'rejected'
     }
+    console.log(end)
     const fetchPosts = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/${end}`, {
@@ -37,7 +47,7 @@ const RolePosts = () => {
       }
     };
     fetchPosts();
-  }, []);
+  }, [userRole]);
 
   return (
     <div>

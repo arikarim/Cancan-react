@@ -15,7 +15,7 @@ function App() {
         {/* <Route> */}
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
+          <Route  path="/login" component={Login} />
           <Route exact path="/createpost" component={CreatPost} />
           <Route exact path="/roles" component={RolePosts} />
           <Route exact  path="/reviewer/:id" component={Reviewer} />

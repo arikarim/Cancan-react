@@ -9,16 +9,16 @@ const Nav = () => {
       <Link className="mx-3 text-decoration-none link-light" to={"/"}>
           Home
         </Link>
-        <Link className="mx-3 text-decoration-none link-light" to={"./createpost"}>
+        <Link className="mx-3 text-decoration-none link-light" to={"/createpost"}>
           Create Post
         </Link>
-        <Link className="mx-3 text-decoration-none link-light" to={"./roles"}>
+        <Link className="mx-3 text-decoration-none link-light" to={"/roles"}>
           My Posts
         </Link>
-        <Link className="mx-3 text-decoration-none link-light" to={"./rejected"}>
+        {/* <Link className="mx-3 text-decoration-none link-light" to={"/rejected"}>
         My rejected Posts
-        </Link>
-          <Link className="mx-3 text-decoration-none link-light" to={"./login"}>
+        </Link> */}
+          <Link className="mx-3 text-decoration-none link-light" to={"/login"}>
             Login
           </Link>
       </ul>

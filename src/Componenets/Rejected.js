@@ -10,7 +10,6 @@ const Rejected = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const {id} = useParams()
   useEffect(() => {
-    console.log(id)
     const fetchPosts = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/posts/${id}`, {
@@ -25,7 +24,7 @@ const Rejected = () => {
       }
     };
     fetchPosts();
-  }, [post]);
+  }, [id]);
 
   const handlePublish = async (e, titlee, bodyy) => {
     const id = Number(e.target.id);
@@ -56,7 +55,6 @@ const Rejected = () => {
   };
   return (
     <div className="d-flex flex-wrap">
-      {console.log('ariiiiii')}
       {post.title && ( 
           <div className="my-3 mx-2 d-flex flex-column" id={post.id} key={post.id}>
             <input
