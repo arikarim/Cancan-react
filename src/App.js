@@ -18,7 +18,9 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/createpost" component={CreatPost} />
           <Route exact path="/roles" component={RolePosts} />
-          <Route exact path="/rejected" component={Rejected} />
+          <Route exact  path="/reviewer/:id" component={Reviewer} />
+          <Route exact  path="/auditor/:id" component={Reviewer} />
+          <Route exact path="/rejected/:id" component={Rejected} />
         </Switch>
         {/* </Route> */}
       </Router>

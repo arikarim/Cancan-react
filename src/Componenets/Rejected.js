@@ -1,29 +1,31 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
 const Rejected = () => {
-  const [posts, setPosts] = useState([]);
+  const [post, setPost] = useState([]);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [decide, setDecide] = useState("");
   const token = localStorage.getItem("token");
   const user = JSON.parse(localStorage.getItem("user"));
+  const {id} = useParams()
   useEffect(() => {
+    console.log(id)
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/rejected", {
+        const response = await axios.get(`http://localhost:3000/posts/${id}`, {
           headers: {
             Authorization: token,
           },
         });
-        setPosts(response.data);
+        setPost(response.data);
         console.log(response.data);
       } catch (error) {
         console.log(error);
       }
     };
     fetchPosts();
-  }, []);
+  }, [post]);
 
   const handlePublish = async (e, titlee, bodyy) => {
     const id = Number(e.target.id);
@@ -46,6 +48,7 @@ const Rejected = () => {
           },
         }
       );
+      setPost([]);
       console.log(data.data);
     } catch (error) {
       console.log(error);
@@ -53,8 +56,8 @@ const Rejected = () => {
   };
   return (
     <div className="d-flex flex-wrap">
-      {posts &&
-        posts.map((post) => (
+      {console.log('ariiiiii')}
+      {post.title && ( 
           <div className="my-3 mx-2 d-flex flex-column" id={post.id} key={post.id}>
             <input
             className="form-control my-3"
@@ -87,8 +90,8 @@ const Rejected = () => {
               </button>
             </div>
           </div>
-        ))}
-    </div>
+      )}
+      </div>
   );
 };
 

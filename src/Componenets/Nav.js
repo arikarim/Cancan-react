@@ -18,11 +18,9 @@ const Nav = () => {
         <Link className="mx-3 text-decoration-none link-light" to={"./rejected"}>
         My rejected Posts
         </Link>
-        {user && (
           <Link className="mx-3 text-decoration-none link-light" to={"./login"}>
             Login
           </Link>
-        )}
       </ul>
     </div>
   );
