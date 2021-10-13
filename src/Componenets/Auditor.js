@@ -1,19 +1,20 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
 const Auditor = () => {
-  const [posts, setPosts] = useState([]);
-  const [decide, setDecide] = useState("");
+  const [post, setPost] = useState([]);
   const token = localStorage.getItem("token");
+  const {id} = useParams()
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/adminposts", {
+        const response = await axios.get(`http://localhost:3000/posts/${id}`, {
           headers: {
             Authorization: token,
           },
         });
-        setPosts(response.data);
+        setPost(response.data);
         console.log(response.data);
       } catch (error) {
         console.log(error);
@@ -45,8 +46,7 @@ const Auditor = () => {
   };
   return (
     <div className="d-flex flex-wrap gap-2">
-      {posts &&
-        posts.map((post) => (
+      {post.title &&   (
           <div className="col-12 col-md-4" id={post.id} key={post.id}>
             <h1>{post.title}</h1>
             <p>{post.body}</p>
@@ -69,7 +69,7 @@ const Auditor = () => {
               </button>
             </div>
           </div>
-        ))}
+        )}
     </div>
   );
 };

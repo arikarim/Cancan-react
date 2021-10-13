@@ -7,6 +7,7 @@ import Rejected from "./Componenets/Rejected";
 import Nav from "./Componenets/Nav";
 import Reviewer from "./Componenets/Reviewer";
 import RolePosts from "./Componenets/RolePosts";
+import Auditor from "./Componenets/Auditor";
 function App() {
   return (
     <div className="container-fluid">
@@ -19,7 +20,7 @@ function App() {
           <Route exact path="/createpost" component={CreatPost} />
           <Route exact path="/roles" component={RolePosts} />
           <Route exact  path="/reviewer/:id" component={Reviewer} />
-          <Route exact  path="/auditor/:id" component={Reviewer} />
+          <Route exact  path="/auditor/:id" component={Auditor} />
           <Route exact path="/rejected/:id" component={Rejected} />
         </Switch>
         {/* </Route> */}

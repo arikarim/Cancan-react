@@ -10,29 +10,29 @@ const RolePosts = () => {
   const token = localStorage.getItem("token");
 
   const roles = JSON.parse(localStorage.getItem("roles"));
-  var userRole = 'rejected'
+  var userRole = "rejected";
   if (roles.includes("reviewer")) {
-    userRole = 'reviewer'
-    console.log(userRole)
+    userRole = "reviewer";
+    console.log(userRole);
   } else if (roles.includes("auditor")) {
-    userRole = 'auditor'
+    userRole = "auditor";
   } else {
-    userRole = 'rejected'
+    userRole = "rejected";
   }
   useEffect(() => {
     var end = "posts";
     if (roles.includes("reviewer")) {
-      end = "adminposts";
-      userRole = 'reviewer'
-      console.log(userRole)
+      end = "admin_posts";
+      userRole = "reviewer";
+      console.log(userRole);
     } else if (roles.includes("auditor")) {
-      userRole = 'auditor'
+      userRole = "auditor";
       end = "auditor";
     } else {
       end = "rejected";
-      userRole = 'rejected'
+      userRole = "rejected";
     }
-    console.log(end)
+    console.log(end);
     const fetchPosts = async () => {
       try {
         const response = await axios.get(`http://localhost:3000/${end}`, {
@@ -53,16 +53,36 @@ const RolePosts = () => {
     <div>
       {posts &&
         posts.map((post) => (
-          <div className="bg-light m-2 col-12 col-md-4" key={post.id}>
-            <Link to={`/${userRole}/${post.id}`}>
-              <h1>{post.title}</h1>
-              <p>{post.body}</p>
-            </Link>
-          </div>
+          // create a table
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Body</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{post.title}</td>
+                <td>{post.body}</td>
+                <td>{post.status}</td>
+                <td>
+                  <Link
+                    to={{
+                      pathname: `/${userRole}/${post.id}`,
+                      state: {
+                        post: post,
+                      },
+                    }}
+                  >
+                    <button className="btn btn-primary">View</button>
+                  </Link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         ))}
-      {/* {roles &&  roles.includes('reviewer') && <Reviewer />}
-      {roles &&  roles.includes('auditor') && <Auditor />}
-      {roles &&  !roles.includes('auditor') && !roles.includes('reviewer') && <Rejected />}  */}
     </div>
   );
 };
