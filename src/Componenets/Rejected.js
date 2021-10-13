@@ -78,6 +78,7 @@ const Rejected = () => {
               >
                 Submit for Review
               </button>
+              {post.submitted == false && (
               <button
               className="btn btn-danger my-2"
                 value="discard"
@@ -86,6 +87,7 @@ const Rejected = () => {
               >
                 Discard the post
               </button>
+              )}
             </div>
           </div>
       )}

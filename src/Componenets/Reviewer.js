@@ -31,6 +31,7 @@ const Reviewer = () => {
       const data = await axios.put(`http://localhost:3000/posts/${id}`, {
         post: {
           status: decide,
+          // submitted: post.submitted
         },
       },
       {

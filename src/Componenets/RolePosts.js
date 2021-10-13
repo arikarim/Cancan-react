@@ -1,9 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Auditor from "./Auditor";
-import Rejected from "./Rejected";
-import Reviewer from "./Reviewer";
 
 const RolePosts = () => {
   const [posts, setPosts] = useState([]);
@@ -50,11 +47,7 @@ const RolePosts = () => {
   }, [userRole]);
 
   return (
-    <div>
-      {posts &&
-        posts.map((post) => (
-          // create a table
-          <table className="table table-striped">
+      <table className="table table-striped">
             <thead>
               <tr>
                 <th scope="col">Title</th>
@@ -62,7 +55,10 @@ const RolePosts = () => {
                 <th scope="col">Status</th>
               </tr>
             </thead>
-            <tbody>
+      {posts &&
+        posts.map((post) => (
+          // create a table
+            <tbody key={post.id}>
               <tr>
                 <td>{post.title}</td>
                 <td>{post.body}</td>
@@ -81,9 +77,8 @@ const RolePosts = () => {
                 </td>
               </tr>
             </tbody>
-          </table>
         ))}
-    </div>
+      </table>
   );
 };
 

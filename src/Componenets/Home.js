@@ -24,10 +24,22 @@ const Home = () => {
     <div className="d-flex flex-wrap">
       {posts &&
         posts.map((post) => (
-          <div className="bg-light m-2 col-12 col-md-4" key={post.id}>
-            <h1>{post.title}</h1>
-            <p>{post.body}</p>
-          </div>
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Body</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{post.title}</td>
+                <td>{post.body}</td>
+                <td>{post.status}</td>
+              </tr>
+            </tbody>
+          </table>
         ))}
     </div>
   );
