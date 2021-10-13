@@ -53,7 +53,7 @@ const Auditor = () => {
             <div className="d-flex flex-column">
               <button
                 className="btn btn-warning my-2"
-                value="send_for_question"
+                value="send_for_review"
                 id={post.id}
                 onClick={(e) => handlePublish(e)}
               >
@@ -61,7 +61,7 @@ const Auditor = () => {
               </button>
               <button
               className="btn btn-success my-2"
-                value="send_for_audit"
+                value="publish"
                 id={post.id}
                 onClick={(e) => handlePublish(e)}
               >
